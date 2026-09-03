@@ -1,0 +1,9 @@
+Clinicdoc
+Copyright 2026 Clinicdoc contributors
+
+This product includes software developed for auditing clinical NLP
+datasets prior to model training. It is not a de-identification system,
+a HIPAA compliance certification, or medical advice.
+
+Synthetic example notes in examples/ and tests/ are fictitious and must
+not be treated as real patient data.
