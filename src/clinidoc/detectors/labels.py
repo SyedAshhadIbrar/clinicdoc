@@ -18,13 +18,29 @@ IMBALANCE_MAJORITY = 0.9
 IMBALANCE_MIN_DOCS = 8
 
 
+def _is_classification_dataset(dataset: LoadedDataset) -> bool:
+    task = str(dataset.config.get("task", "")).strip().lower()
+    if task in {"ner", "token_classification"}:
+        return False
+    if task in {"classification", "classify"}:
+        return True
+    labeled = sum(1 for d in dataset.documents if d.has_classification())
+    if labeled == 0:
+        return False
+    ner = sum(1 for d in dataset.documents if d.has_ner())
+    total = len(dataset.documents)
+    if ner and labeled < total * 0.5:
+        return labeled >= ner
+    return True
+
+
 def scan(dataset: LoadedDataset) -> list[Finding]:
     findings: list[Finding] = []
     labeled_docs = [d for d in dataset.documents if d.has_classification()]
     if not labeled_docs:
         return findings
 
-    classification_mode = True
+    classification_mode = _is_classification_dataset(dataset)
     if classification_mode:
         for doc in dataset.documents:
             if not doc.has_classification() and not doc.has_ner():

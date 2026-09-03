@@ -28,7 +28,7 @@ dev = ["pytest>=7.4"]
 clinicdoc = "clinidoc.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/clinicdoc/clinicdoc"
+Homepage = "https://github.com/SyedAshhadIbrar/Clinicdoc"
 
 [build-system]
 requires = ["setuptools>=61"]

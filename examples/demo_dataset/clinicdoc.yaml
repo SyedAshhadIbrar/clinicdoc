@@ -3,3 +3,10 @@ label: label
 patient_id: patient_id
 split: split
 id: id
+task: classification
+labels:
+  - chest_pain
+  - diabetes
+  - pneumonia
+  - other
+  - rare_fever

@@ -140,7 +140,7 @@ def findings_to_sarif(findings: list[Finding]) -> dict[str, Any]:
                     "driver": {
                         "name": "clinicdoc",
                         "version": __version__,
-                        "informationUri": "https://github.com/clinicdoc/clinicdoc",
+                        "informationUri": "https://github.com/SyedAshhadIbrar/Clinicdoc",
                         "rules": rules,
                     }
                 },

@@ -14,6 +14,9 @@ venv/
 htmlcov/
 out/
 split/
+out_resplit/
+audit_out/
+audit_ncbi/
 *.sarif
 .DS_Store
 Thumbs.db

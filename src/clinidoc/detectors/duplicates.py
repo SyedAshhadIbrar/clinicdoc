@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import re
 from collections import defaultdict
+from pathlib import Path
 
 from clinidoc.dataset import Document, LoadedDataset
 from clinidoc.findings import DUPLICATES_EXACT, DUPLICATES_NEAR, Finding, finding
@@ -52,6 +53,45 @@ def estimated_jaccard(a: tuple[int, ...], b: tuple[int, ...]) -> float:
     return hits / len(a)
 
 
+def _occurrence_label(doc: Document) -> str:
+    parts = [doc.split]
+    if doc.source_row is not None:
+        parts.append(f"row {doc.source_row}")
+    elif doc.source_path:
+        parts.append(Path(doc.source_path).name)
+    return " ".join(parts)
+
+
+def _exact_duplicate_message(group: list[Document]) -> str:
+    n = len(group)
+    unique_ids = list(dict.fromkeys(doc.id for doc in group))
+    locations = ", ".join(_occurrence_label(doc) for doc in group)
+    if len(unique_ids) == 1:
+        doc_id = unique_ids[0]
+        return f"Document id {doc_id} appears {n} times with identical text ({locations})"
+    id_list = ", ".join(unique_ids)
+    return f"{n} documents with different ids share identical text ({id_list}; {locations})"
+
+
+def _exact_duplicate_evidence(group: list[Document], digest: str) -> dict:
+    unique_ids = list(dict.fromkeys(doc.id for doc in group))
+    return {
+        "document_ids": unique_ids,
+        "duplicate_count": len(group),
+        "occurrences": [
+            {
+                "document_id": doc.id,
+                "split": doc.split,
+                "row": doc.source_row,
+                "path": doc.source_path,
+            }
+            for doc in group
+        ],
+        "splits": sorted({doc.split for doc in group}),
+        "hash": digest[:12],
+    }
+
+
 def scan(dataset: LoadedDataset) -> list[Finding]:
     findings: list[Finding] = []
     by_hash: dict[str, list[Document]] = defaultdict(list)
@@ -67,13 +107,11 @@ def scan(dataset: LoadedDataset) -> list[Finding]:
     for digest, group in by_hash.items():
         if len(group) < 2:
             continue
-        ids = [d.id for d in group]
-        splits = sorted({d.split for d in group})
         findings.append(
             finding(
                 DUPLICATES_EXACT,
-                f"{len(group)} documents share identical text ({', '.join(ids)})",
-                evidence={"document_ids": ids, "splits": splits, "hash": digest[:12]},
+                _exact_duplicate_message(group),
+                evidence=_exact_duplicate_evidence(group, digest),
                 count=len(group),
             )
         )
@@ -82,10 +120,9 @@ def scan(dataset: LoadedDataset) -> list[Finding]:
     for group in by_hash.values():
         if len(group) < 2:
             continue
-        ids = [d.id for d in group]
-        for i, left in enumerate(ids):
-            for right in ids[i + 1 :]:
-                exact_pairs.add(tuple(sorted((left, right))))
+        for i, left in enumerate(group):
+            for right in group[i + 1 :]:
+                exact_pairs.add(tuple(sorted((left.id, right.id))))
 
     seen_near: set[tuple[str, str]] = set()
     for i, (left, lsig) in enumerate(signatures):
