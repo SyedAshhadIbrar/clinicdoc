@@ -1,0 +1,18 @@
+{"id": "n001", "text": "Patient presents with cough and fever consistent with pneumonia.", "label": "pneumonia", "patient_id": "P1", "timestamp": "2024-03-15T10:00:00"}
+{"id": "n002", "text": "HbA1c elevated; type 2 diabetes management discussed.", "label": "diabetes", "patient_id": "P2", "timestamp": "2024-02-01T09:00:00"}
+{"id": "n003", "text": "", "label": "other", "patient_id": "P3"}
+{"id": "n004", "text": "Routine follow-up visit. Vitals stable. No acute complaints.", "label": "other", "patient_id": "P4"}
+{"id": "n005", "text": "Routine follow-up visit. Vitals stable. No acute complaints.", "label": "other", "patient_id": "P5"}
+{"id": "n006", "text": "Patient SSN 123-45-6789 was admitted for pneumonia.", "label": "pneumonia", "patient_id": "P6", "entities": [{"start": 100, "end": 109, "label": "CONDITION", "text": "pneumonia"}]}
+{"id": "n007", "text": "Rare tropical fever suspected after travel history.", "label": "rare_fever", "patient_id": "P7"}
+{"id": "n008", "text": "Chest X-ray shows infiltrate; treat as pneumonia.", "label": "pneumonia", "patient_id": "P8"}
+{"id": "n009", "text": "Insulin regimen adjusted for diabetes control.", "label": "diabetes", "patient_id": "P9"}
+{"id": "n010", "text": "General wellness check; no specific diagnosis.", "label": "other", "patient_id": "P10"}
+{"id": "n011", "text": "Productive cough, fever, crackles on exam.", "label": "pneumonia", "patient_id": "P11"}
+{"id": "n012", "text": "Fasting glucose borderline; monitor for diabetes.", "label": "diabetes", "patient_id": "P12"}
+{"id": "n013", "text": "Mild URI symptoms; symptomatic care.", "label": "other", "patient_id": "P13"}
+{"id": "n014", "text": "Bilateral infiltrates; community-acquired pneumonia.", "label": "pneumonia", "patient_id": "P14"}
+{"id": "n015", "text": "Metformin continued; diabetes stable.", "label": "diabetes", "patient_id": "P15"}
+{"id": "n016", "text": "Follow-up for prior pneumonia resolution.", "label": "pneumonia", "patient_id": "P16"}
+{"id": "n017", "text": "Diabetes education and diet counseling.", "label": "diabetes", "patient_id": "P17"}
+{"id": "n018", "text": "Second pneumonia note for patient P1 in train.", "label": "pneumonia", "patient_id": "P1", "timestamp": "2024-04-01T11:00:00"}
