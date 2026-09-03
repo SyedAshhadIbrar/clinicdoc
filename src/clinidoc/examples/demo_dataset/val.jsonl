@@ -1,0 +1,5 @@
+{"id": "v001", "text": "Chest pain radiating to left arm. Troponin pending.", "split": "val", "patient_id": "P1", "label": "chest_pain", "timestamp": "2024-01-01"}
+{"id": "v002", "text": "Stable diabetes, continue metformin 500mg BID.", "split": "val", "patient_id": "P20", "label": "diabetes"}
+{"id": "v003", "text": "Pleuritic chest pain; CXR clear.", "split": "val", "patient_id": "P21", "label": "chest_pain"}
+{"id": "v004", "text": "Resolved pneumonia at clinic follow-up.", "split": "val", "patient_id": "P22", "label": "pneumonia"}
+{"id": "v005", "text": "Diabetes with CKD; adjust insulin for fasting lows.", "split": "val", "patient_id": "P23", "label": "diabetes"}

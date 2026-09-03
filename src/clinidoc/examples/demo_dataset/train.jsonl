@@ -1,0 +1,18 @@
+{"id": "n001", "text": "Patient presents with chest pain. History of hypertension.", "split": "train", "patient_id": "P1", "label": "chest_pain", "timestamp": "2024-06-01", "entities": [{"start": 45, "end": 57, "label": "CONDITION", "text": "hypertension"}, {"start": 22, "end": 32, "label": "SYMPTOM", "text": "chest pain"}]}
+{"id": "n002", "text": "Follow-up for diabetes mellitus type 2. A1c is 7.2.", "split": "train", "patient_id": "P2", "label": "diabetes", "timestamp": "2024-03-12", "entities": [{"start": 14, "end": 38, "label": "CONDITION", "text": "diabetes mellitus type 2"}]}
+{"id": "n003", "text": "", "split": "train", "patient_id": "P3", "label": "chest_pain"}
+{"id": "n004", "text": "Discharge summary: wound care instructions. Keep the incision dry.", "split": "train", "patient_id": "P4", "label": "other"}
+{"id": "n005", "text": "Discharge summary: wound care instructions. Keep the incision dry.", "split": "train", "patient_id": "P5", "label": "other"}
+{"id": "n006", "text": "Patient SSN 078-05-1120 was admitted for pneumonia.", "split": "train", "patient_id": "P6", "label": "pneumonia", "entities": [{"start": 100, "end": 109, "label": "CONDITION", "text": "pneumonia"}]}
+{"id": "n007", "text": "Rare presentation of familial Mediterranean fever with peritonitis.", "split": "train", "patient_id": "P7", "label": "rare_fever"}
+{"id": "n008", "text": "Substernal chest pain worse with exertion, relieved by rest.", "split": "train", "patient_id": "P9", "label": "chest_pain"}
+{"id": "n009", "text": "Recurrent chest pain; ECG without ST elevation.", "split": "train", "patient_id": "P10", "label": "chest_pain"}
+{"id": "n010", "text": "Atypical chest pain, likely musculoskeletal.", "split": "train", "patient_id": "P11", "label": "chest_pain"}
+{"id": "n011", "text": "Type 2 diabetes, metformin tolerated. Foot exam unremarkable.", "split": "train", "patient_id": "P12", "label": "diabetes"}
+{"id": "n012", "text": "New diagnosis of diabetes after random glucose 280.", "split": "train", "patient_id": "P13", "label": "diabetes"}
+{"id": "n013", "text": "Diabetes education provided; carbohydrate counting reviewed.", "split": "train", "patient_id": "P14", "label": "diabetes"}
+{"id": "n014", "text": "Community-acquired pneumonia treated with amoxicillin.", "split": "train", "patient_id": "P15", "label": "pneumonia"}
+{"id": "n015", "text": "Improving pneumonia; oxygen weaned to room air.", "split": "train", "patient_id": "P16", "label": "pneumonia"}
+{"id": "n016", "text": "Chest pain after coughing; D-dimer negative.", "split": "train", "patient_id": "P17", "label": "chest_pain"}
+{"id": "n017", "text": "Stable angina: chest pain on hills only.", "split": "train", "patient_id": "P18", "label": "chest_pain"}
+{"id": "n018", "text": "Discharge summary: wound care instructions. Keep the incision clean and dry.", "split": "train", "patient_id": "P19", "label": "other"}
